@@ -6,7 +6,7 @@ In this project we explore public data provided by the New York City Metropolita
 2. Time series patterns
 3. Demographic data provided by the United States Census. 
 
-We will consider MTA turnstile data from August 3rd, 2019 to October 3rd, 2019 as the appropriate window before their Fall 2020 gala. This data is filtered to remove errors and inconsistencies in the reporting process. During our designated time frame, we analyze the busiest stations, weekday traffic, and daily time trends. 
+We will consider MTA turnstile data from August 3rd, 2019 to October 3rd, 2019 as the appropriate window before their Fall 2020 gala. This data is filtered to remove errors and inconsistencies in the reporting process. Included in this depository are behind the scenes data cleaning and filtering methods used in our analysis. During our designated time frame, we analyze the busiest stations, weekday vs. weekend traffic, and daily time trends.   
 
 In our final reccomendations, we suggest stations based on pure traffic to increase awareness and also stations based on appropriate demographics to target the most likely commitments. To this extent, we have created a scoring model with adjustable weights to quantify optimimal cavassing locations.   
 
