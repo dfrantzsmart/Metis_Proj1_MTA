@@ -10,6 +10,11 @@ We will consider MTA turnstile data from August 3rd, 2019 to October 3rd, 2019 a
 
 In our final reccomendations, we suggest stations based on pure traffic to increase awareness and also stations based on appropriate demographics to target the most likely commitments. To this extent, we have created a scoring model with adjustable weights to quantify optimimal cavassing locations.   
 
+Note that the file 'Final_Project_Markdown.ipynb' contains the final code for much of the project.
+
+The 'MTA_Data_Cleaning.ipynb' and 'Daily_Trends_Dataframe.ipynb' provide code for building the necessary datasets for the analysis.
+
+The 'formulas.py' contains several functions used in the notebooks.
 
 
 
