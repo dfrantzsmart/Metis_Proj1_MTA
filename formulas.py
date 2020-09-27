@@ -1,5 +1,6 @@
-import pandas
+import pandas as pd
 import sys
+
 def get_data(week_nums):
     """ Takes a list of weeknums and pulls data from mta
     inputs = list of weeknums in format of: '190803'
@@ -9,19 +10,25 @@ def get_data(week_nums):
     dfs = []
     for week_num in week_nums:
         file_url = url.format(week_num)
-        dfs.append(pandas.read_csv(file_url))
-    return pandas.concat(dfs)
+        dfs.append(pd.read_csv(file_url))
+    output = pd.concat(dfs)
+    return output
 
 
-def Add_Weekday(data_frame, column='DATE'):
+def Clean_Date(data_frame, column='DATE'):
     """
-    Takes the Date column, converts to a date and adds a weekday
+    Takes the Date column, converts to a date, adds Time component and adds a weekday Column
     input: Dataframe, Column Name
     output: Updated Dataframe with new columns
     """
-    dmap = {0:'Mon', 1: 'Tue', 2: 'Wed', 3:'Thu', 4:'Fri', 5:'Sat', 6:'Sun'}
-    data_frame['Day_Number'] = data_frame[column].apply(lambda x: x.dayofweek)
-    data_frame['Weekday'] = data_frame['Day_Number'].map(dmap)
+    day_map = {0:'Mon', 1: 'Tue', 2: 'Wed', 3:'Thu', 4:'Fri', 5:'Sat', 6:'Sun'}
+    
+    data_frame['DATETIME'] = pd.to_datetime(data_frame['DATE'] + ' ' + data_frame['TIME'])
+    data_frame['DATE']  = pd.to_datetime(data_frame['DATE'],format='%m/%d/%Y')
+    data_frame['TIME']=pd.to_datetime(data_frame['TIME'], format='%H:%M:%S')
+
+    data_frame['Weekday'] = data_frame[column].apply(lambda x: x.dayofweek)
+    data_frame['Weekday'] = data_frame['Weekday'].map(day_map)
     return data_frame
 
 def daytype(day):
